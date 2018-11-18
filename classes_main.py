@@ -2,14 +2,14 @@
 class Animals:
     sum_weight = 0                                      # общий вес популяции
     max_weight = 0                                      # максимальный вес особи
-    name_animal_max_width = ''
+    name_animal_max_weight = ''
     def __init__(self,name, weight):                    # задать имя, вес
         self.name = name
         self.weight = weight
-        Animals.sum_weight += self.weight               # определение максимального веса животного
+        Animals.sum_weight += self.weight               # определение массы всех животных
         if self.weight > Animals.max_weight:            # определение имени животного с максимальным весом
             Animals.max_weight = self.weight
-            Animals.name_animal_max_width = self.name
+            Animals.name_animal_max_weight = self.name
 
     def feed(self):                                     # все умеют есть
         print('Вы покормили %s!' %  (self.name))
@@ -72,15 +72,14 @@ Grey = Goose('Серый', 3.99)
 Koko = Hen('Коко', 1)
 Kukareku = Hen('Кукареку', 1.25)
 Kryakva = Duck('Кряква', 1.5)
-weight_list = [White.weight, Grey.weight, Koko.weight, Kukareku.weight, Kryakva.weight]
+weight_list = [White.weight, Grey.weight, Koko.weight, Kukareku.weight, Kryakva.weight] # вносим вес скота
 # ... и настал день шестой, и создал Бог животных...
 Manya = Cow('Манька', 250)
 Barashek = Sheep('Барашек', 110)
 Kudryavyi = Sheep('Кудрявый', 100)
 Roga = Goat('Рога', 88)
 Kopyta = Goat('Копыта', 99)
-
-weight_list += [Manya.weight, Barashek.weight, Kudryavyi.weight, Roga.weight, Kopyta.weight]    # вносим все веса
+weight_list += [Manya.weight, Barashek.weight, Kudryavyi.weight, Roga.weight, Kopyta.weight]    # добавляем еще веса
 
 print('Добро пожаловать на ферму дяди Вани, бывшую ферму дяди Джо, который в России спился и застрелился!', 'Здесь проживают:', sep='\n')
 print('Корова по кличке %s весом %d кг.' % (Manya.name, Manya.weight))
@@ -93,7 +92,7 @@ print('Утка %s весом %.2f кг.' % (Kryakva.name, Kryakva.weight))
 print('Общий вес животных составляет:', Animals.sum_weight, 'кг.')
 
 weight_list.sort(reverse=True)
-print('Самое тяжелое животное весит %.2f кг. Его кличка %s.' % (weight_list[0], Animals.name_animal_max_width))
+print('Самое тяжелое животное весит %.2f кг. Его кличка %s.' % (weight_list[0], Animals.name_animal_max_weight))
 
 print('\nЧто тут происходит? Да все замечательно, все здоровы и довольны:')
 Manya.give_milk(); Barashek.trim(); Kudryavyi.trim(); Roga.give_milk(); Kopyta.give_milk(); Koko.give_eggs()
@@ -110,11 +109,11 @@ while s not in ('y', 'n'):
         Manya.feed(); Barashek.feed(); Kudryavyi.feed(); Roga.feed(); Kopyta.feed()
         Koko.feed(); Kukareku.feed(); Kryakva.feed(); Grey.feed(); White.feed()
         i += 1
-    if i > 2 and s == 'y':
+    if i >= 2 and s == 'y':
         print('Довольно! Дядя Ваня будет сердиться!')
     s = ''
 
-print('\nУже уходите?')
+print('\nУже уходите? И чаю не выпьете?')
 print('Корова %s промычала вам' % (Manya.name))
 Manya.give_voice()
 print('Овцы %s и %s посылают вам' % (Barashek.name, Kudryavyi.name))
