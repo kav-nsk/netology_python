@@ -36,9 +36,7 @@ class Duck(Livestock):
 
 # домашняя скотина
 class Fowl(Animals):
-    vox = 'Ко-ко-ко'
-    def give_voice(self):
-        print(self.vox)
+    pass
 #   корова
 class Cow(Fowl):
     vox = 'Му-му-мууу'
