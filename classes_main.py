@@ -13,6 +13,9 @@ class Animals:
 
     def feed(self):                                     # все умеют есть
         print('Вы покормили %s!' %  (self.name))
+    
+    def give_voice(self, vox=''):                       # все произносят звуки
+        print(self.vox)
 
 # домашняя птица
 class Livestock(Animals):
@@ -21,18 +24,12 @@ class Livestock(Animals):
 #    гусь
 class Goose(Livestock):
     vox = 'Га-га-га'
-    def give_voice(self):
-        print(self.vox)
 #    курица
 class Hen(Livestock):
     vox = 'Ко-ко-ко'
-    def give_voice(self):
-        print(self.vox)
 #    утка
 class Duck(Livestock):
     vox = 'Кря-кря-кря'
-    def give_voice(self):
-        print(self.vox)
 
 # домашняя скотина
 class Fowl(Animals):
@@ -40,25 +37,16 @@ class Fowl(Animals):
 #   корова
 class Cow(Fowl):
     vox = 'Му-му-мууу'
-    def give_voice(self):
-        print(self.vox)
-    
     def give_milk(self):
         print('Корова %s дала молоко' % (self.name))
 #   овца
 class Sheep(Fowl):
     vox = 'Беее'
-    def give_voice(self):
-        print(self.vox)
-
     def trim(self):
         print('Овца %s поделилась шерстью' % (self.name))
 #   коза
 class Goat(Fowl):
-    vox = 'Бйяяя'
-    def give_voice(self):
-        print(self.vox)
-
+    vox = 'Мeeee'
     def give_milk(self):
         print('Коза %s дала молоко' % (self.name))
 
