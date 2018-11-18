@@ -1,4 +1,4 @@
-# животные, родительский
+# животные, родительский    
 class Animals:
     sum_weight = 0                                      # общий вес популяции
     max_weight = 0                                      # максимальный вес особи
@@ -77,7 +77,7 @@ Barashek = Sheep('Барашек', 110)
 Kudryavyi = Sheep('Кудрявый', 100)
 Roga = Goat('Рога', 88)
 Kopyta = Goat('Копыта', 99)
-weight_list += [Manya.weight, Barashek.weight, Kudryavyi.weight, Roga.weight, Kopyta.weight]    # добавляем еще веса
+weight_list += [Manya.weight, Barashek.weight, Kudryavyi.weight, Roga.weight, Kopyta.weight]    # добавляем еще веса копытных
 
 print('Добро пожаловать на ферму дяди Вани, бывшую ферму дяди Джо, который в России спился и застрелился!', 'Здесь проживают:', sep='\n')
 print('Корова по кличке %s весом %d кг.' % (Manya.name, Manya.weight))
@@ -93,8 +93,9 @@ weight_list.sort(reverse=True)
 print('Самое тяжелое животное весит %.2f кг. Его кличка %s.' % (weight_list[0], Animals.name_animal_max_weight))
 
 print('\nЧто тут происходит? Да все замечательно, все здоровы и довольны:')
-Manya.give_milk(); Barashek.trim(); Kudryavyi.trim(); Roga.give_milk(); Kopyta.give_milk(); Koko.give_eggs()
-Kukareku.give_eggs(); Kryakva.give_eggs(); Grey.give_eggs(); White.give_eggs()
+Manya.give_milk(); Barashek.trim(); Kudryavyi.trim(); Roga.give_milk(); Kopyta.give_milk()         # кто какую пользу приносит
+for obj in [White, Grey, Koko, Kukareku, Kryakva]:
+    obj.give_eggs()
 
 s = ''
 i = 0
@@ -104,8 +105,8 @@ while s not in ('y', 'n'):
     if s == 'n':
         break
     elif s == 'y' and i <= 2:
-        Manya.feed(); Barashek.feed(); Kudryavyi.feed(); Roga.feed(); Kopyta.feed()
-        Koko.feed(); Kukareku.feed(); Kryakva.feed(); Grey.feed(); White.feed()
+        for obj in [Manya, Barashek, Kudryavyi, Roga, Kopyta, Koko, Kukareku, Kryakva, Grey, White]:        # накормить всех
+            obj.feed()
         i += 1
     if i >= 2 and s == 'y':
         print('Довольно! Дядя Ваня будет сердиться!')
