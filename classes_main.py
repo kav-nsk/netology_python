@@ -58,7 +58,7 @@ Grey = Goose('Серый', 3.99)
 Koko = Hen('Коко', 1)
 Kukareku = Hen('Кукареку', 1.25)
 Kryakva = Duck('Кряква', 1.5)
-weight_list = [White.weight, Grey.weight, Koko.weight, Kukareku.weight, Kryakva.weight] # вносим вес скота
+weight_list = [White.weight, Grey.weight, Koko.weight, Kukareku.weight, Kryakva.weight] # вносим вес птиц
 # ... и настал день шестой, и создал Бог животных...
 Manya = Cow('Манька', 250)
 Barashek = Sheep('Барашек', 110)
