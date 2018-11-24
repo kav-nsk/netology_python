@@ -75,7 +75,6 @@ while action not in ('n', 'p', 'l', 's', 'a', 'q'):
     action = input('>>> ')
 
     if action == 'n':
-        #print(get_list_allName())
         output_list = get_list_allName()
         for i in output_list:
             print(i)
