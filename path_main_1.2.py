@@ -13,7 +13,7 @@ import os
 
 # Function
 def subtraction(sourceList, subList):
-    """Удаляет записи из списка-источника, записи в списке указанном вторым параметром."""
+    """Удаляет записи из списка-источника, совпадающие с записями в списке указанном вторым параметром."""
     return list(set(sourceList) - set(subList))
 
 # Main section
