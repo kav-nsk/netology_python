@@ -2,8 +2,8 @@
 # Далее ожидается снова ввод строки и очередной поиск в ранее найденном перечне файлов. Выход через   ctr + C.
 
 # Global data objects
-#remoteDir = '/home/kav/Документы/Учебные курсы/Python develop/Python_base/1.9 Пути, файлы, запуск программ/Migrations/'
-remoteDir = '/home/kuzovlevav/PycharmProjects/python_develop/Files&Path/Migrations'
+# Здесь нужно ввести путь к локальной папке с файлами
+#remoteDir = '/home/kuzovlevav/PycharmProjects/python_develop/Files&Path/Migrations'
 listFilesFilesForDel = []
 
 # Import library
