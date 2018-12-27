@@ -8,7 +8,7 @@ import time
 from threading import Thread
 
 token = 'ed1271af9e8883f7a7c2cefbfddfcbc61563029666c487b2f71a5227cce0d1b533c4af4c5b888633c06ae'
-#id = '171691064'
+# id = '171691064'
 userName = 'eshmargunov'
 
 
@@ -37,7 +37,7 @@ class UserInformer:
         response = requests.get(url, params)
         self.friendsId = (response.json()['response']['items'])
         return self.friendsId
-    
+
     def groups(self):
         '''Выдает словарь в котором ключи, это id групп текущего пользователя, а значение - словарь с параметрами группы.
         '''
@@ -60,7 +60,8 @@ class UserInformer:
 
         # Код повышенного риска ошибки
         i = 1
-        while True: 
+
+        while True:
             try:
                 allGroupsFriends = self.groups_of_friends(self.friendsId)
             except PermissionError:
@@ -85,13 +86,13 @@ class UserInformer:
         j, k = 0, 0
         allGroupsFriends = set()
 
-        #for i in [4929, 7858, 11952, 48807]:      # Для быстрой отладки
+        # for i in [4929, 7858, 11952, 48807]:      # Для быстрой отладки
         for i in friendsId:
             params.update({'user_id': i})
             response = requests.get(url, params)
             if response.status_code != 200:
                 k += 1
-            if not 'error' in response.json().keys():
+            if 'error' not in response.json().keys():
                 allGroupsFriends = allGroupsFriends.union(response.json()['response']['items'])
                 print('.')
                 j += 1
@@ -111,8 +112,6 @@ def save_to_json(inputData):
 infoShmargunov = UserInformer(userName, token)
 
 groupsUserWithoutFriends = infoShmargunov.get_secret_groups()
-dataToSave = [{'name': infoShmargunov.groupsInfo[i]['name'], 'gid': i, 'members_count': infoShmargunov.groupsInfo[i]['members_count']}
-                for i in groupsUserWithoutFriends]
-                
-#print(time.clock())    # Скорость выполнения для отладки
+dataToSave = [{'name': infoShmargunov.groupsInfo[i]['name'], 'gid': i, 'members_count': infoShmargunov.groupsInfo[i]['members_count']} for i in groupsUserWithoutFriends]
+# print(time.clock())    # Скорость выполнения для отладки
 save_to_json(dataToSave)
